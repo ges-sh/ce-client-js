@@ -9,8 +9,10 @@ simplify Email Validation process in browser (client side). It is an wrapper to
 To use the Client, just write following code:
 
 ```javascript
-var ceFormDefender = new CEClient('3026459d-48b7-4570-a233-081d8e97e388');
-ceFormDefender.sendRequest({ email: "blah@blah.com" })
+var ceFormDefender = new CEClient({
+  application: '3026459d-48b7-4570-a233-081d8e97e388'
+});
+ceFormDefender.check({ email: "blah@blah.com" })
   .then(response => {
     // handle response as it is given in https://correct.email/docs/api/#http-request
   })
@@ -58,10 +60,13 @@ They can be handled in catch of Promise like every other error.
 ## Sandbox (testing mode)
 
 You can use Sandbox to tests every request responses. All you need to do
-is just `use second argument in function as true`:
+is just add `sandbox: true` on init:
 
 ```javascript
-var ceFormDefender = new CEClient('3026459d-48b7-4570-a233-081d8e97e388', true);
+var ceFormDefender = new CEClient({
+  application: '3026459d-48b7-4570-a233-081d8e97e388',
+  sandbox: true
+});
 ```
 
 All information about Sandbox you find in our [API Docs](https://correct.email/docs/api/#sandbox).
