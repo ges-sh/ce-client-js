@@ -17,24 +17,15 @@ function CEClient(settings) {
     real: 'https://api.correct.email/v1/single/'
   };
 
-  var addParametersToUrl = function (url, parameters) {
-    if (Object.keys(parameters).length === 0) { return; }
-    var isFirst = true;
-
-    function addParameters(param) {
-      var value = "=" + parameters[param];
-      isFirst ? url += "?" + param + value : url += "&" + param + value;
-    }
-
-
-    for (var param in parameters) {
-      if (parameters.hasOwnProperty(param)) {
-        addParameters(param);
-        isFirst = false;
+  var addParametersToUrl = function (url, params) {
+    var values = [];
+    for (var key in params) {
+      if (params.hasOwnProperty(key)) {
+        var value = params[key];
+        values.push(encodeURIComponent(key) + "=" + encodeURIComponent(value));
       }
     }
-
-    return url;
+    return values.length ? url + "?" + values.join("&") : url;
   };
 
   function request(url, parameters) {
