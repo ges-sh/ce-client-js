@@ -9,10 +9,10 @@ simplify Email Validation process in browser (client side). It is an wrapper to
 To use the Client, just write following code:
 
 ```javascript
-var ceFormDefender = new CEClient({
+var ceClient = new CEClient({
   application: '3026459d-48b7-4570-a233-081d8e97e388'
 });
-ceFormDefender.check({ email: "blah@blah.com" })
+ceClient.check({ email: "blah@blah.com" })
   .then(response => {
     // handle response as it is given in https://correct.email/docs/api/#http-request
   })
@@ -63,7 +63,7 @@ You can use Sandbox to tests every request responses. All you need to do
 is just add `sandbox: true` on init:
 
 ```javascript
-var ceFormDefender = new CEClient({
+var ceClient = new CEClient({
   application: '3026459d-48b7-4570-a233-081d8e97e388',
   sandbox: true
 });
