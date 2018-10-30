@@ -40,10 +40,11 @@ ceClient.check({ email: "clean@correct.email" })
 Remember to check which browsers [can use Promises](https://caniuse.com/#feat=promises).
 To make working promises in older browsers, use polyfills like a [taylorhakes promise-polyfill](https://github.com/taylorhakes/promise-polyfill).
 
+`ip` parameter is optional in check() and checkPromise() methods.
 
-And that's it!
+### Using as AMD module
 
-hint: `ip` parameter is optional in check() and checkPromise() methods.
+The Client is free to use as [RequireJS](https://requirejs.org/) module loader.
 
 ## Additional Errors provided with the Client
 
