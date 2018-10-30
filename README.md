@@ -2,17 +2,33 @@
 
 The Client created by Correct.Email team was written in native JavaScript to
 simplify Email Validation process in browser (client side). It is an wrapper to
-[HTTP Request](https://correct.email/docs/api/#http-request) where [Promise Polyfill](https://github.com/taylorhakes/promise-polyfill) was used.
+[HTTP Request](https://correct.email/docs/api/#http-request).
 
 ## Using the Client
 
-To use the Client, just write following code:
+You can use the Client in following ways:
+
+### Response on callback
 
 ```javascript
 var ceClient = new CEClient({
-  application: '3026459d-48b7-4570-a233-081d8e97e388'
+  application: 'API_KEY' // your API KEY
 });
-ceClient.check({ email: "blah@blah.com" })
+
+ceClient.check({ email: "clean@correct.email" }, function(response) {
+  // handle response as it is described in https://correct.email/docs/api/#http-request
+  // and https://correct.email/docs/api/#error-response
+});
+```
+
+### Response on Promise
+
+```javascript
+var ceClient = new CEClient({
+  application: 'API_KEY' // your API KEY
+});
+
+ceClient.check({ email: "clean@correct.email" })
   .then(response => {
     // handle response as it is given in https://correct.email/docs/api/#http-request
   })
@@ -21,9 +37,13 @@ ceClient.check({ email: "blah@blah.com" })
   });
 ```
 
+Remember to check which browsers [can use Promises](https://caniuse.com/#feat=promises).
+To make working promises in older browsers, use polyfills like a [taylorhakes promise-polyfill](https://github.com/taylorhakes/promise-polyfill).
+
+
 And that's it!
 
-hint: `ip` parameter is optional in sendRequest() method.
+hint: `ip` parameter is optional in check() and checkPromise() methods.
 
 ## Additional Errors provided with the Client
 
