@@ -98,5 +98,10 @@
     return;
   }
 
+  if (typeof exports === "object" && exports) {
+    module.exports = CEClient;
+    return;
+  }
+
   window.CEClient = CEClient;
 })();

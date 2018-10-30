@@ -46,6 +46,11 @@ To make working promises in older browsers, use polyfills like a [taylorhakes pr
 
 The Client is free to use as [RequireJS](https://requirejs.org/) module loader.
 
+### Using as ES6 Module
+
+The client can be used as [ES6 Module](http://exploringjs.com/es6/ch_modules.html)
+or CommonJS module, and also cooporate fine with [Webpack](https://webpack.js.org/).
+
 ## Additional Errors provided with the Client
 
 There are two additional errors provided with the Client:
