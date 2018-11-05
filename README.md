@@ -12,7 +12,8 @@ You can use the Client in following ways:
 
 ```javascript
 var ceClient = new CEClient({
-  application: 'API_KEY' // your API KEY
+  application: 'API_KEY' // your API KEY,
+  language: 'en_US' // optional // default en_US
 });
 
 ceClient.check({ email: "clean@correct.email" }, function(response) {

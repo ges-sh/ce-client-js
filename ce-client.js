@@ -14,6 +14,16 @@
       return;
     }
 
+    var languages = ['en', 'de'];
+
+    function findLanguage() {
+      var language = settings.language || 'en_US';
+      if (languages.indexOf(language.split('_')[0]) !== -1) { return language; }
+      return 'en-US';
+    }
+
+    var language = findLanguage();
+
     var urls = {
       sandbox: 'https://api.sandbox.correct.email/v1/single/',
       real: 'https://api.correct.email/v1/single/'
@@ -33,6 +43,8 @@
     function request(url, parameters, cb) {
       var xhr = new XMLHttpRequest();
       xhr.open('GET', addParametersToUrl(url, parameters));
+
+      xhr.setRequestHeader('Accept-Language', language);
 
       xhr.onabort = function () {
         cb({
